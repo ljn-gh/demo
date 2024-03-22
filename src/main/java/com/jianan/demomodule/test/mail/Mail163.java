@@ -1,16 +1,19 @@
 package com.jianan.demomodule.test.mail;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+
+import com.jianan.demomodule.util.SecurityUtil;
+
+import cn.hutool.crypto.asymmetric.KeyType;
 
 public class Mail163 {
     public static void main(String[] args) throws Exception {
         //	账号信息
         String username = "15148757024@163.com";//	邮箱发送账号
-        String password = "WKVNXIHJCAPUQJXL";//	邮箱授权码
+        String password = "BLXlI/PpeqykF7b0zMbD+OM3NikuRvtTiVeao+C3WvRZiqEESbKarJCqRo1UBaPOM7XZx4j52ic3AnBBzhWmBMKyqua5zPTarD0o68g+Kftrs7mDlnfBIRWADF2vNj1KFGbkvnRKpOE9oSiXV7jl1CI=";//	邮箱授权码
 
         //	创建一个配置文件，并保存
         Properties props = new Properties();
@@ -31,7 +34,7 @@ public class Mail163 {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 // TODO Auto-generated method stub
-                return new PasswordAuthentication(username,password);
+                return new PasswordAuthentication(username, SecurityUtil.SM2.decryptStr(password, KeyType.PrivateKey));
             }
         });
 
