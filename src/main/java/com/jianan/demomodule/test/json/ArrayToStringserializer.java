@@ -27,12 +27,17 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 public class ArrayToStringserializer implements ObjectSerializer {
     @Override
     public void write(JSONSerializer serializer, Object object, Object fieldName, Type fieldType, int features) throws IOException {
+        
         SerializeWriter out = serializer.out;
         if(object == null){
             out.writeNull(SerializerFeature.WriteNullListAsEmpty);
         }else{
             if (object instanceof List) {
                 List list = (List) object;
+                if(list.size() == 0){
+                    serializer.writeNull();
+                    return;
+                }
                 StringJoiner sj = new StringJoiner(" ");
                 for (int i = 0; i < list.size(); i++) {
                     sj.add(list.get(i).toString());
