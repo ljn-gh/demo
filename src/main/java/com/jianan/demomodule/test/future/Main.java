@@ -17,7 +17,7 @@ public class Main {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                
             }
             System.out.println(Thread.currentThread().getName()+"第一个线程执行结束！");
             return 1;
@@ -26,7 +26,7 @@ public class Main {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                
             }
             System.out.println(Thread.currentThread().getName()+"第二个线程执行结束！");
         }).thenRun(()->{

@@ -1,9 +1,3 @@
-/**
- * @projectName demo-module
- * @package com.jianan.demomodule.test.json
- * @className com.jianan.demomodule.test.json.ArrayToStringserializer
- * @copyright Copyright 2024 Thunisoft, Inc All rights reserved.
- */
 package com.jianan.demomodule.test.json;
 
 
