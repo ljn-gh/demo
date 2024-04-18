@@ -17,6 +17,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: jn
@@ -44,7 +46,7 @@ public class Pdf {
         
         // URL resource = this.getClass().getResource();
         Double a = null;
-        System.out.println(a == 0);
+       // System.out.println(a == 0);
 
 
         List<Param> list = new ArrayList<>();
@@ -58,9 +60,10 @@ public class Pdf {
         
         Param param = new Param();
         // 默认值
-        
-        
-        
 
+        StringJoiner sj = new StringJoiner("","第","");
+
+        sj.add("16").add("18");
+        System.out.println(sj);
     }
 }
