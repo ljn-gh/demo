@@ -4,13 +4,15 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 import com.jianan.demomodule.test.json.Param;
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.awt.*;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,7 +39,6 @@ public class Pdf {
                 //System.out.println(textFromPage);
             }
         }
-        
         PdfReaderContentParser parser = new PdfReaderContentParser(reader);
         parser.processContent(1,new TextRenderListener());
     }
@@ -65,5 +66,20 @@ public class Pdf {
 
         sj.add("16").add("18");
         System.out.println(sj);
+    }
+    
+    @Test
+    public void readByPdfBox() throws Exception {
+        PDDocument document = Loader.loadPDF(new File("E:\\project\\lijianan\\demo-module\\src\\main\\java\\com\\jianan\\demomodule\\test\\pdf\\测试文档.pdf"));
+        PDFTextStripperByArea stripper = new PDFTextStripperByArea();
+        stripper.addRegion("name", new Rectangle(0, 0, 100, 100));
+        //stripper.setStartPage(0); 
+        //stripper.setEndPage(0);
+//        stripper.setStartPage(0);
+//        stripper.setEndPage(1);
+        stripper.extractRegions(document.getPage(0));
+        String text = stripper.getTextForRegion("name");
+        System.out.println("获取文本内容: " + text);
+        document.close();
     }
 }
