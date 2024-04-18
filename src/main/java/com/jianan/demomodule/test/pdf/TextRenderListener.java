@@ -1,6 +1,8 @@
 package com.jianan.demomodule.test.pdf;
 
+import com.itextpdf.awt.geom.Rectangle2D;
 import com.itextpdf.text.pdf.parser.ImageRenderInfo;
+import com.itextpdf.text.pdf.parser.LineSegment;
 import com.itextpdf.text.pdf.parser.RenderListener;
 import com.itextpdf.text.pdf.parser.TextRenderInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +34,9 @@ public class TextRenderListener implements RenderListener {
             System.out.println("==================");
         }
         System.out.print(text);
+        LineSegment baseline = renderInfo.getBaseline();
+        Rectangle2D.Float boundingRectange = baseline.getBoundingRectange();
+        boundingRectange.getX()
     }
 
     @Override

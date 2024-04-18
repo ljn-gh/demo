@@ -3,6 +3,7 @@ package com.jianan.demomodule.test.pdf;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 import com.jianan.demomodule.test.json.Param;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -40,7 +41,7 @@ public class Pdf {
             }
         }
         PdfReaderContentParser parser = new PdfReaderContentParser(reader);
-        parser.processContent(1,new TextRenderListener());
+        parser.processContent(1, new TextRenderListener());
     }
 
     public static void main(String[] args) {
