@@ -36,7 +36,7 @@ public class TextRenderListener implements RenderListener {
         System.out.print(text);
         LineSegment baseline = renderInfo.getBaseline();
         Rectangle2D.Float boundingRectange = baseline.getBoundingRectange();
-        boundingRectange.getX()
+        boundingRectange.getX();
     }
 
     @Override
