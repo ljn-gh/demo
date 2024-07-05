@@ -29,6 +29,12 @@ public class Case {
     
     @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String casename;
+
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    private String casecon;
+    
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    private String casereason;
     
     @Field(type = FieldType.Keyword,name = "c_citycode")
     private String citycode;
@@ -48,5 +54,7 @@ public class Case {
         
         @Field(type = FieldType.Text, analyzer = "ik_max_word")
         private String penbasis;
+        
+        private String pendecissdate;
     }
 }
