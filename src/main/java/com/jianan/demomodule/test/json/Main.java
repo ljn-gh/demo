@@ -68,6 +68,7 @@ public class Main {
 
         Map<String, Object> paths = JSONPath.paths(object);
         System.out.println(paths);
+        
         Object o = JSONPath.eval(object1, "/data");
         System.out.println();
     }
