@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.erhlc.AbstractElasticsearchConfiguration;
 
-@Configuration
-@Data
+//@Configuration
+//@Data
 public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
     //重写父类方法
     @Override
-    @Bean
+    //@Bean
     public RestHighLevelClient elasticsearchClient() {
 
         return new RestHighLevelClient(RestClient.builder(
