@@ -144,6 +144,11 @@
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
             <version>7.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+            <version>2.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>

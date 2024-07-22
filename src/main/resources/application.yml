@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://lijianan.mysql.rds.aliyuncs.com/dbtest?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password: root@6963
+    url: 
+    username: 
+    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 10
@@ -21,3 +21,14 @@ spring:
   elasticsearch:
     rest:
       urls: http://localhost:9200
+  
+xxl:
+  job:
+    admin: 
+      address: http://localhost:9999/xxl-job-admin
+    executor:
+      appname: xxl-job-executor-sample
+      ip: localhost
+      port: 9998
+      logretentionday: -1
+    accessToken:
